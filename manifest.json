@@ -1,10 +1,50 @@
 {
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
-    "version": "1.0",
+    "name": "Tabpeek",
+    "description": "Hover-to-preview for Chrome tab groups. Instantly preview and switch tabs in a group.",
+    "version": "0.1.0",
     "manifest_version": 3,
+    "minimum_chrome_version": "114",
+
+    "permissions": [
+      "tabs", 
+      "tabGroups",
+      "sidePanel"
+    ],
+
+    "side_panel": {
+      "default_path": "side_panel.html"
+    },
+
     "action": {
-      "default_popup": "hello.html",
-      "default_icon": "hello_extensions.png"
-    }
-  }
+      "default_title": "Click to open Tabpeek",
+      "default_icon": {
+        "16": "/images/Tabpeek_logo_no_background.png",
+        "32": "/images/Tabpeek_logo_no_background.png",
+        "48": "/images/Tabpeek_logo_no_background.png",
+        "128": "/images/Tabpeek_logo_no_background.png"
+      }
+    },
+
+    "icons": {
+      "16": "/images/Tabpeek_logo_no_background.png",
+      "32": "/images/Tabpeek_logo_no_background.png",
+      "48": "/images/Tabpeek_logo_no_background.png",
+      "128": "/images/Tabpeek_logo_no_background.png"
+    },
+
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+
+    "web_accessible_resources": [
+      {
+        "resources": ["images/default-favicon.png"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+}
