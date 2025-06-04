@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chrome-types": "^0.1.350",
+    "task-master-ai": "^0.15.0"
+  }
+}
